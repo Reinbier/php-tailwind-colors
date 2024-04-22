@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Database\Factories;
+namespace Reinbier\PhpTailwindColors\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

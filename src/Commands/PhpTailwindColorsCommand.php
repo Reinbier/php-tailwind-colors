@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Reinbier\PhpTailwindColors\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class PhpTailwindColorsCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'php-tailwind-colors';
 
     public $description = 'My command';
 
