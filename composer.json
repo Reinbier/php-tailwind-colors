@@ -17,8 +17,9 @@
     ],
     "require": {
         "php": "^8.2",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0"
+        "illuminate/contracts": "^10.0||^11.0",
+        "spatie/color": "^1.5",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
@@ -35,29 +36,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Reinbier\\PhpTailwindColors\\": "src/",
-            "Reinbier\\PhpTailwindColors\\Database\\Factories\\": "database/factories/"
+            "Reinbier\\PhpTailwindColors\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Reinbier\\PhpTailwindColors\\Tests\\": "tests/",
-            "Workbench\\App\\": "workbench/app/"
+            "Reinbier\\PhpTailwindColors\\Tests\\": "tests/"
         }
     },
     "scripts": {
-        "post-autoload-dump": "@composer run prepare",
-        "clear": "@php vendor/bin/testbench package:purge-php-tailwind-colors --ansi",
-        "prepare": "@php vendor/bin/testbench package:discover --ansi",
-        "build": [
-            "@composer run prepare",
-            "@php vendor/bin/testbench workbench:build --ansi"
-        ],
-        "start": [
-            "Composer\\Config::disableProcessTimeout",
-            "@composer run build",
-            "@php vendor/bin/testbench serve"
-        ],
+        "post-autoload-dump": "@php vendor/bin/testbench package:discover --ansi",
         "analyse": "vendor/bin/phpstan analyse",
         "test": "vendor/bin/pest",
         "test-coverage": "vendor/bin/pest --coverage",
@@ -76,7 +64,7 @@
                 "Reinbier\\PhpTailwindColors\\PhpTailwindColorsServiceProvider"
             ],
             "aliases": {
-                "PhpTailwindColors": "Reinbier\\PhpTailwindColors\\Facades\\PhpTailwindColors"
+                "PhpTailwindColors": "TailwindColor"
             }
         }
     },

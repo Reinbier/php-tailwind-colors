@@ -2,9 +2,9 @@
 
 namespace Reinbier\PhpTailwindColors;
 
+use Illuminate\Support\Facades\Blade;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use Reinbier\PhpTailwindColors\Commands\PhpTailwindColorsCommand;
 
 class PhpTailwindColorsServiceProvider extends PackageServiceProvider
 {
@@ -17,9 +17,21 @@ class PhpTailwindColorsServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('php-tailwind-colors')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigration('create_php-tailwind-colors_table')
-            ->hasCommand(PhpTailwindColorsCommand::class);
+            ->hasViews();
+    }
+
+    public function packageRegistered()
+    {
+        $this->app->scoped(
+            ColorManager::class,
+            fn () => new ColorManager(),
+        );
+    }
+
+    public function packageBooted()
+    {
+        Blade::directive('tailwindColors', function (): string {
+            return "<?php echo \Reinbier\PhpTailwindColors\Facades\TailwindColor::renderStyles() ?>";
+        });
     }
 }
