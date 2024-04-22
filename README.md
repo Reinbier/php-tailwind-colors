@@ -153,7 +153,7 @@ TailwindColor::register([
 
 ### Registering extra colors
 
-You can register extra colors that you can use throughout Filament:
+You can register extra colors that you can use throughout your app:
 
 ```php
 use Reinbier\PhpTailwindColors\Color;

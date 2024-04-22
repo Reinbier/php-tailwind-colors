@@ -10,7 +10,7 @@ it('has default colors', function () {
 
 it('can disable default colors', function () {
     TailwindColor::disableDefaultColors();
- 
+
     expect(TailwindColor::getColors())
         ->toBeEmpty();
 
